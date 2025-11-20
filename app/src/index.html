@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP Jobs Runner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #0078d4;
+            border-radius: 6px;
+            background-color: #0078d4;
+            color: white;
+        }
+        button:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+    <h2>SOP Job Runner</h2>
+
+    <button onclick="runJob('SOP Mapper')">SOP Mapper</button>
+    <button onclick="runJob('SOP Meta Evaluator')">SOP Meta Evaluator</button>
+    <button onclick="runJob('SOP Modernizer')">SOP Modernizer</button>
+
+    <div id="result" style="margin-top: 20px; font-family: monospace;"></div>
+
+    <script>
+        async function runJob(jobName) {
+            const endpoint = '/api/jobs/run-now';
+
+            const job_parameters = {
+                job_name: jobName,
+                timestamp: new Date().toISOString(),
+                requestedBy: 'WebClient'
+            };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ job_parameters })
+                });
+
+                const text = await response.text();
+                document.getElementById('result').textContent = `Response: ${text}`;
+            } catch (error) {
+                document.getElementById('result').textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
