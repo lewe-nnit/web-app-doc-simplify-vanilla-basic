@@ -75,11 +75,12 @@
         }
 
         // Read JSON response
-        const result = await resp.text();
+        const result = await resp.json();
+        const contentText = result.value.content[0].text;
 
         // Display result in your chat output container
         const output = document.querySelector(".chat-output");
-        output.innerHTML = `<p><strong>Response:</strong> ${result}</p>`;
+        output.innerHTML = `<p><strong>Response:</strong> ${contentText}</p>`;
       } catch (err) {
         console.error("Call failed", err);
         alert("Error calling the Azure Function. Check console.");
