@@ -45,25 +45,45 @@
 
       <form class="search-row" aria-label="Search SOPs">
         <input type="text" id="searchInput" name="search" placeholder="Type your search message here" />
-        <button type="submit" onclick="window.location.href='SOP_Search.html'">Search</button>
+        <button type="submit">Search</button>
       </form>
     </section>
   </main>
 
   <script>
-    // Placeholder navigation behavior—swap in actual routing later.
-    document.querySelectorAll(".menu-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelector(".menu-btn.active")?.classList.remove("active");
-        btn.classList.add("active");
-        // TODO: navigate to the corresponding HTML page.
-      });
-    });
-
-    // Always redirect to search results page.
-    document.querySelector(".search-row").addEventListener("submit", (e) => {
+    document.querySelector(".search-row").addEventListener("submit", async (e) => {
       e.preventDefault();
-      window.location.href = "SOP_Search.html";
+      const message = document.getElementById("searchInput").value.trim();
+      if (!message) return alert("Please enter a search term.");
+
+      // Build request body
+      const body = JSON.stringify({ userChatMessage: message });
+
+      try {
+        const resp = await fetch("/api/documents_search", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body
+        });
+
+        if (!resp.ok) {
+          const txt = await resp.text();
+          alert(`Function error (${resp.status}): ${txt}`);
+          return;
+        }
+
+        // Read JSON response
+        const result = await resp.json();
+
+        // Display result in your chat output container
+        const output = document.querySelector(".chat-output");
+        output.innerHTML = `<p><strong>Response:</strong> ${result.response || result}</p>`;
+      } catch (err) {
+        console.error("Call failed", err);
+        alert("Error calling the Azure Function. Check console.");
+      }
     });
   </script>
 </body>
