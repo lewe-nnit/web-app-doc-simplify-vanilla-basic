@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Simplification Assistant - SOP Modernizer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Document Simplification Assistant</h1>
+      <img
+        class="logo"
+        src="https://cdn.cookielaw.org/logos/73c0b691-1f7b-41f9-995c-8d65c207b114/018ec1b4-1a78-7447-91d5-692cdcff97fa/8c4f46df-7539-4141-b4fb-5ac8f4685d0c/FERRING_Logo_RGB-R0-G136-B206.png"
+        alt="Ferring Pharmaceuticals logo"
+      />
+    </div>
+  </header>
+
+  <main class="app-container">
+    <nav class="sidebar" aria-label="Primary">
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Search.html'">SOP Search</button>
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Mapper.html'">SOP Mapper</button>
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Evaluator.html'">SOP Meta Evaluator</button>
+      <button class="menu-btn active" type="button">SOP Modernizer</button>
+    </nav>
+
+    <section class="main-panel">
+      <div class="chat-output" role="region" aria-live="polite">
+        <div class="results-intro">
+          <h1>SOP Modernizer Report – Draft Design</h1>
+        </div>
+
+        <!-- === Report Content === -->
+        <div class="result-section">
+          <h2>Header Section</h2>
+          <table class="example-table">
+            <tr><th>Field</th><th>Example</th></tr>
+            <tr><td>Document Title</td><td>SOP‑MFG‑102 Deviation Reporting</td></tr>
+            <tr><td>Module Run Date</td><td>2026‑01‑12   09:47 CET</td></tr>
+            <tr><td>Processed By</td><td>Smart AI Modernizer v2.1</td></tr>
+            <tr><td>User / Reviewer</td><td>M. Søgaard, QA Author</td></tr>
+            <tr><td>Source Document Version</td><td>v 3.2</td></tr>
+            <tr><td>New Draft ID</td><td>SOP‑MFG‑102‑DRAFT‑2026‑01</td></tr>
+            <tr><td>Overall Compliance Score</td><td>89 % – Compliant (Minor CSOP Gap Detected)</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>1 – Executive Summary</h2>
+          <blockquote>
+            The SOP Modernizer module analysed the cleaned content output from the SOP Meta Evaluator.  
+            43 sections were scanned; 16 were simplified, 4 merged, 2 marked for deletion.  
+            The draft aligns with Corporate SOP CSOP‑01 and GMP chapter 4 requirements.  
+            Three minor template inconsistencies and one terminology conflict were flagged.
+          </blockquote>
+        </div>
+
+        <div class="result-section">
+          <h2>2 – Change Summary Table</h2>
+          <table class="example-table">
+            <tr><th>Section</th><th>Action</th><th>Original Text (snippet)</th><th>Recommendation</th><th>Rationale</th><th>User Decision</th></tr>
+            <tr><td>5.1 Scope</td><td>Simplify</td><td>This procedure applies to all manufacturing sites where batch records are …</td><td>Applies to all Ferring manufacturing sites handling batch records.</td><td>Language simplified for clarity.</td><td>✅ Accepted</td></tr>
+            <tr><td>7.2 Responsibilities</td><td>Merge</td><td>QA must… / Production Supervisor must… (across two SOPs)</td><td>Merged into one Responsibility table (format aligned to RACI).</td><td>Removes duplicate content found in SOP‑MFG‑103.</td><td>🔄 Request Edit</td></tr>
+            <tr><td>9.4 Records</td><td>Delete</td><td>Reference to obsolete form WI‑214 (replaced 2024)</td><td>Delete obsolete reference.</td><td>Linked form retired in QDocs.</td><td>❌ Rejected</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>3 – Template Conformity Check</h2>
+          <table class="example-table">
+            <tr><th>Requirement</th><th>Status</th><th>Notes</th></tr>
+            <tr><td>Purpose Section</td><td>✅ Compliant</td><td>–</td></tr>
+            <tr><td>Scope Section</td><td>✅ Compliant</td><td>–</td></tr>
+            <tr><td>Responsibilities</td><td>⚠️ Review needed</td><td>Role table format inconsistent with RACI style</td></tr>
+            <tr><td>Change Log</td><td>❌ Missing</td><td>Add standard Change Log paragraph before publication</td></tr>
+            <tr><td>Records Section</td><td>✅ Compliant</td><td>–</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>4 – CSOP Alignment Matrix</h2>
+          <table class="example-table">
+            <tr><th>CSOP Clause</th><th>Corporate Requirement</th><th>Current Draft Coverage</th><th>Gap</th></tr>
+            <tr><td>CSOP‑01 – 4.3 Deviation Handling</td><td>Define root‑cause evaluation process.</td><td>Included (section 6.3).</td><td>–</td></tr>
+            <tr><td>CSOP‑01 – 7.2 CAPA Link</td><td>Reference related CAPA tracking records.</td><td>Mentioned but no record ID.</td><td>⚠️ Add CAPA cross‑reference</td></tr>
+            <tr><td>CSOP‑01 – 9.1 Training</td><td>Map procedure to role‑based training matrix.</td><td>Partially covered.</td><td>⚠️ Update with training role list from Mapper</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>5 – GMP / Regulatory Compliance Checklist</h2>
+          <table class="example-table">
+            <tr><th>Regulation Reference</th><th>Compliance Status</th><th>Comment</th></tr>
+            <tr><td>EU GMP Part I – 4.2 Documentation</td><td>✅ Compliant</td><td>All records contain necessary sign‑offs.</td></tr>
+            <tr><td>FDA 21 CFR 11 – §11.10(e) Audit Trail</td><td>✅ Compliant</td><td>AI/Reviewer actions logged in system.</td></tr>
+            <tr><td>GDPR Art. 32 Data Security</td><td>✅ Compliant</td><td>No PII processed.</td></tr>
+            <tr><td>GAMP 5 Annex A – Dynamic Content Validation</td><td>⚠️ Review Required</td><td>Model update validation pending before go‑live.</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>6 – Terminology and Glossary Update</h2>
+          <table class="example-table">
+            <tr><th>Term / Abbreviation</th><th>Unified Definition</th><th>Status</th></tr>
+            <tr><td>CAPA</td><td>Corrective and Preventive Action</td><td>✅ Standardized</td></tr>
+            <tr><td>QMS</td><td>Quality Management System</td><td>✅ Standardized</td></tr>
+            <tr><td>Root Cause Analysis</td><td>Process for identifying primary cause of deviation</td><td>⚠️ Definition different from CSOP Document</td></tr>
+            <tr><td>Logbook Record</td><td>Manual record maintaining production data</td><td>✅ Standardized</td></tr>
+          </table>
+        </div>
+
+        <div class="result-section">
+          <h2>7 – User Validation Summary</h2>
+          <table class="example-table">
+            <tr><th>User Action</th><th>Count</th><th>User Comments</th></tr>
+            <tr><td>Accepted</td><td>18</td><td>“Wording now clear for operators.”</td></tr>
+            <tr><td>Rejected</td><td>2</td><td>“Keep legacy text for regional differences.”</td></tr>
+            <tr><td>Requested Edit</td><td>3</td><td>“Combine sections without losing training references.”</td></tr>
+          </table>
+          <blockquote>
+            QA Author: M. Søgaard – Reviewed 2026‑01‑12 09:47<br />
+            QA Reviewer: S. Laermans – Approved 2026‑01‑12 10:30
+          </blockquote>
+        </div>
+
+        <div class="result-section">
+          <h2>8 – Output and Publication</h2>
+          <ul>
+            <li>📄 <strong>Download Word Draft</strong> – Tracked‑changes + annotations ready for QA review</li>
+            <li>🧾 <strong>Export PDF Report</strong> – Summary report for audit records</li>
+            <li>📤 <strong>Send to Veeva</strong> – Publish new version of SOP with metadata update</li>
+          </ul>
+        </div>
+
+        <div class="result-section">
+          <h2>Footer</h2>
+          <blockquote>
+            © 2026 Ferring Pharmaceuticals – Document Simplification Platform v2.1<br />
+            Data stored in Databricks Validated Environment. All actions logged per 21 CFR Part 11 requirements.
+          </blockquote>
+        </div>
+        <!-- === End Report === -->
+      </div>
+    </section>
+
+    <script>
+      // Decision button logic (can be used for user actions)
+      document.querySelectorAll('.suggestion-block').forEach(block => {
+        const acceptBtn = block.querySelector('.accept-btn');
+        const rejectBtn = block.querySelector('.reject-btn');
+        if (acceptBtn && rejectBtn) {
+          acceptBtn.addEventListener('click', () => {
+            block.classList.add('accepted');
+            block.classList.remove('rejected');
+          });
+          rejectBtn.addEventListener('click', () => {
+            block.classList.add('rejected');
+            block.classList.remove('accepted');
+          });
+        }
+      });
+    </script>
+  </main>
+
+  <script>
+    const searchRow = document.querySelector(".search-row");
+    if (searchRow) {
+      searchRow.addEventListener("submit", (e) => {
+        e.preventDefault();
+        window.location.href = "SOP_Search.html";
+      });
+    }
+  </script>
+</body>
+</html>

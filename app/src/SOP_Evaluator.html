@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Simplification Assistant - SOP Meta Evaluator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Document Simplification Assistant</h1>
+      <img
+        class="logo"
+        src="https://cdn.cookielaw.org/logos/73c0b691-1f7b-41f9-995c-8d65c207b114/018ec1b4-1a78-7447-91d5-692cdcff97fa/8c4f46df-7539-4141-b4fb-5ac8f4685d0c/FERRING_Logo_RGB-R0-G136-B206.png"
+        alt="Ferring Pharmaceuticals logo"
+      />
+    </div>
+  </header>
+
+  <main class="app-container">
+    <nav class="sidebar" aria-label="Primary">
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Search.html'">SOP Search</button>
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Mapper.html'">SOP Mapper</button>
+      <button class="menu-btn active" type="button">SOP Meta Evaluator</button>
+      <button class="menu-btn" type="button" onclick="window.location.href='SOP_Modernizer.html'">
+        SOP Modernizer
+      </button>
+    </nav>
+
+    <section class="main-panel">
+  <div class="chat-output" role="region" aria-live="polite">
+    
+	<div class="results-intro">
+  <h1>SOP Evalautor results for the document: </h1> <b>SOP-31542 - Internal Audits</b>
+  <p>Consider the following recommendations to make your SOP more effective and readable:</p>
+</div>
+	
+
+    <div class="result-section">
+      <h2>Header Information</h2>
+      <p><strong>Issue:</strong> The header information is currently listed as text. It can be more effectively presented in a table format for better clarity and organization.</p>
+      <div class="suggestion-block">
+        <p><strong>Suggestion:</strong> Present the header information in a table format.</p>
+        <table class="example-table">
+          <tr><th>Field</th><th>Details</th></tr>
+          <tr><td>Title</td><td>Internal Audit SOP</td></tr>
+          <tr><td>Document Number</td><td>SOP‑006</td></tr>
+          <tr><td>Version Number</td><td>1.0</td></tr>
+          <tr><td>Effective Date</td><td>[Effective Date]</td></tr>
+        </table>
+        <p><strong>Reason:</strong> Using a table format for the header information improves readability and organization.</p>
+        <div class="decision-buttons">
+          <button class="menu-btn accept-btn" type="button">Accept</button>
+          <button class="menu-btn reject-btn" type="button">Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h2>Paragraph: Purpose</h2>
+      <p><strong>Issue (Paragraph 2.1):</strong> The purpose statement is lengthy and includes redundant phrases.</p>
+      <div class="suggestion-block">
+        <p><strong>Suggestion (Paragraph 2.1):</strong> Simplify the sentence for better readability and clarity.</p>
+        <p><strong>Reason:</strong> Improves clarity by removing redundant wording.</p>
+        <div class="decision-buttons">
+          <button class="menu-btn accept-btn" type="button">Accept</button>
+          <button class="menu-btn reject-btn" type="button">Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h2>Paragraph: Process</h2>
+      <p><strong>Issue (Paragraph 6.0):</strong> The audit process steps are presented in plain text, making it harder to follow.</p>
+      <div class="suggestion-block">
+        <p><strong>Suggestion (Paragraph 6.0):</strong> Present the steps in a table for better clarity and visual appeal.</p>
+        <table class="example-table">
+          <tr><th>Step</th><th>Description</th></tr>
+          <tr><td>6.1</td><td>Internal Audit Planning</td></tr>
+          <tr><td>6.2</td><td>Audit Team Selection</td></tr>
+          <tr><td>6.3</td><td>Audit Preparation</td></tr>
+          <tr><td>6.4</td><td>Audit Execution</td></tr>
+          <tr><td>6.5</td><td>Audit Reporting</td></tr>
+          <tr><td>6.6</td><td>Corrective Actions</td></tr>
+          <tr><td>6.7</td><td>Follow‑up Audits</td></tr>
+        </table>
+        <p><strong>Reason:</strong> Adding subheadings and using a table improves structure and makes navigation easier.</p>
+        <div class="decision-buttons">
+          <button class="menu-btn accept-btn" type="button">Accept</button>
+          <button class="menu-btn reject-btn" type="button">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="search-row" aria-label="Search SOPs">
+    <input type="text" id="searchInput" name="search" placeholder="Type your search message here" />
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<script>
+  // Button interactivity
+  document.querySelectorAll('.suggestion-block').forEach(block => {
+    const suggestionParagraphs = block.querySelectorAll('p');
+    const acceptBtn = block.querySelector('.accept-btn');
+    const rejectBtn = block.querySelector('.reject-btn');
+
+    acceptBtn.addEventListener('click', () => {
+      block.classList.add('accepted');
+      block.classList.remove('rejected');
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      block.classList.add('rejected');
+      block.classList.remove('accepted');
+    });
+  });
+</script>
+  </main>
+
+  <script>
+    document.querySelector(".search-row").addEventListener("submit", (e) => {
+      e.preventDefault();
+      window.location.href = "SOP_Search.html";
+    });
+  </script>
+</body>
+</html>
+
