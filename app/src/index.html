@@ -47,6 +47,12 @@
         <input type="text" id="searchInput" name="search" placeholder="Type your search message here" />
         <button type="submit">Search</button>
       </form>
+
+      <!-- Loading spinner placeholder -->
+      <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p>Searching, please wait...</p>
+      </div>
     </section>
   </main>
 
@@ -56,10 +62,16 @@
       const message = document.getElementById("searchInput").value.trim();
       if (!message) return alert("Please enter a search term.");
 
-      // Build request body
-      const body = JSON.stringify({ userChatMessage: message });
+      const button = e.target.querySelector("button");
+      const loadingIndicator = document.getElementById("loadingIndicator");
+      button.disabled = true;
+      button.textContent = "Searching...";
+      loadingIndicator.style.display = "block";
 
       try {
+        // Build request body
+        const body = JSON.stringify({ userChatMessage: message });
+
         const resp = await fetch("/api/documents_search", {
           method: "POST",
           headers: {
@@ -81,9 +93,15 @@
         // Display result in your chat output container
         const output = document.querySelector(".chat-output");
         output.innerHTML = `<p><strong>Response:</strong> ${contentText}</p>`;
-      } catch (err) {
+      }
+      catch (err) {
         console.error("Call failed", err);
         alert("Error calling the Azure Function. Check console.");
+      }
+      finally {
+        button.disabled = false;
+        button.textContent = "Search";
+        loadingIndicator.style.display = "none";
       }
     });
   </script>
