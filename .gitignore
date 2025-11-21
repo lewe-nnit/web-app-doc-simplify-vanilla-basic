@@ -1,3 +1,4 @@
-node_modules/
-/test-results/
+**/__blobstorage__/
+**/__queuestorage__/
+**/__azurite_db_*.json
 

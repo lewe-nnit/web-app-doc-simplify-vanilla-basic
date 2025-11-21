@@ -2,23 +2,6 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "shell",
-			"label": "npm install (functions)",
-			"command": "npm install",
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
-		},
-		{
-			"type": "shell",
-			"label": "npm prune (functions)",
-			"command": "npm prune --production",
-			"problemMatcher": [],
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
-		},
-		{
 			"label": "clean (functions)",
 			"command": "dotnet",
 			"args": [
@@ -27,10 +10,7 @@
 				"/consoleloggerparameters:NoSummary"
 			],
 			"type": "process",
-			"problemMatcher": "$msCompile",
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
+			"problemMatcher": "$msCompile"
 		},
 		{
 			"label": "build (functions)",
@@ -46,10 +26,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"problemMatcher": "$msCompile",
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
+			"problemMatcher": "$msCompile"
 		},
 		{
 			"label": "clean release (functions)",
@@ -62,10 +39,7 @@
 				"/consoleloggerparameters:NoSummary"
 			],
 			"type": "process",
-			"problemMatcher": "$msCompile",
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
+			"problemMatcher": "$msCompile"
 		},
 		{
 			"label": "publish (functions)",
@@ -79,16 +53,13 @@
 			],
 			"type": "process",
 			"dependsOn": "clean release (functions)",
-			"problemMatcher": "$msCompile",
-			"options": {
-				"cwd": "${workspaceFolder}/api"
-			}
+			"problemMatcher": "$msCompile"
 		},
 		{
 			"type": "func",
 			"dependsOn": "build (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}/api/bin/Debug/net8.0"
+				"cwd": "${workspaceFolder}/bin/Debug/net8.0"
 			},
 			"command": "host start",
 			"isBackground": true,
